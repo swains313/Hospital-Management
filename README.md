@@ -2,6 +2,7 @@
 HospitalManagementSystem
 
 SQL:
+THIS IS SPRING BOOT PROGRAME YOU NO NEEED TO CREATE DATABASE MANUALLY IT WILL AUTOMATICALLY CREATED
 NOTE:YOU HAVE TO INSERT THE ADMIN DATA EXPLICITLY (ACCORDING TO ABOVE INFORMATION password is = saumya ) PASSWORD IS PRESENT ENCODE FORMAT & USERID IS MAIL ID . 
 INSERT INTO `users` (`id`, `confirmation_token`, `username`, `enabled`, `first_name`, `gender`, `last_name`, `password`, `authority`, `lastseen`) VALUES
 (1, '36983cce-975b-4a92-bf73-a4f41978e01c', 'swain@gmail.com', b'1', 'Saumyaranjan', 'MALE', 'swain', '$2a$10$3LzhMz4ikJTnrmJUO7kPg.K0F1uAQuNVcaxwJ2Vbfwo3kX4Ccx.FK', 'ROLE_ADMIN', 'Tue Mar 07 18:54:28 IST 2023');
