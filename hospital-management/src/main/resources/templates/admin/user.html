@@ -194,11 +194,17 @@
 				<td th:text="${temp.role}" />	
 				<td th:text="${temp.lastseen}" />	
 				
-<td>
-  <a  th:href="@{/admin/delete/{email} (email = ${temp.email})}" type="button"  class="btn btn-danger" style="width: 80px;display: flex;margin: 2px;">Delete</a> 
+<td><a
+											th:href="@{/admin/delete/{email} (email = ${temp.email})}"
+											type="button" class="btn btn-danger"
+											style="width: 80px; display: flex; margin: 2px;">Delete</a> 
+											<a
+											th:href="@{/admin/update/{email} (email = ${temp.email})}"
+											type="buuton" class="btn btn-warning"
+											style="width: 80px; display: flex; margin: 2px;">Update</a></td>
 
-<button type="button" class="btn btn-warning"  style="width: 80px;display: flex;margin: 2px;">Update</button>
-    </td>
+
+
 
 				
 				

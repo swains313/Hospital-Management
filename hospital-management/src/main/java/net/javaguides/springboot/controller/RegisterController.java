@@ -10,6 +10,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -188,6 +190,48 @@ public class RegisterController {
 
 		modelAndView.addObject("successMessage", "Your password has been set!");
 		return modelAndView;
+	}
+	
+	@PostMapping("/updateSave/{email}")
+	public String updateSave(@PathVariable String email, @ModelAttribute("user") User u)
+	{
+		System.err.println("Error OCCURED 1");
+		Admin admin=adminServiceImplementation.findByEmail(email);
+		System.err.println("Error OCCURED 2");
+		admin.setFirstName(u.getFirstName());
+		admin.setLastName(u.getLastName());
+		admin.setGender(u.getGender());
+		admin.setEmail(u.getEmail());
+		admin.setPassword(encoder.encode(u.getPassword()));
+		
+		System.err.println("Error OCCURED 3");
+		User user=userService.findByEmail(email);
+		System.err.println("Error OCCURED 4");
+		
+		user.setRole(u.getRole());
+		user.setFirstName(u.getFirstName());
+		user.setLastName(u.getLastName());
+		user.setLastseen(u.getLastseen());
+		user.setEmail(u.getEmail());
+		user.setGender(u.getGender());
+		user.setRole(u.getRole());
+		user.setPassword(encoder.encode(u.getPassword()));
+		user.setConfirmationToken("ByAdmin-Panel");
+		user.setEnabled(true);
+		System.err.println("Error OCCURED 5");
+		
+		
+		
+		System.out.println(user.getEmail());
+		System.out.println(admin.getEmail());
+//		
+		
+		
+		
+		userService.saveUser(user);
+		adminServiceImplementation.save(admin);
+		
+		return "redirect:/admin/user-details";
 	}
 
 }

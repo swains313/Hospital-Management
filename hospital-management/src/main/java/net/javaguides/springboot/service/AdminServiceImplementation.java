@@ -15,7 +15,6 @@ public class AdminServiceImplementation implements AdminService {
 	@Autowired
 	private AdminRepository adminRepository;
 
-	// inject employee dao
 
 	// @Autowired //Adding bean id @Qualifier
 	public AdminServiceImplementation(AdminRepository obj) {
@@ -35,28 +34,22 @@ public class AdminServiceImplementation implements AdminService {
 
 	@Override
 	public Admin findByEmail(String user) {
-		System.out.println(user + " FIND BY EMAIL");
-		return adminRepository.findByEmail(user);
 		
 		
 
-//		List<Admin> list = adminRepository.findAll();
-//
-//		for (Admin admin : list) {
-//
-//			System.out.println(admin.getEmail() + "    gfgfhfhgfhgfhfhfhfhgfgh");
-//
-//		}
-//		for (Admin admin : list) {
-//			if (user.equals(admin.getEmail())) {
-//				System.out.println(admin.getEmail() + " RETURN");
-//				return admin;
-//			}
-//
-//		}
-//		System.out.println("null return");
-//
-//		return null;
+		List<Admin> list = adminRepository.findAll();
+
+		for (Admin admin : list) {
+
+		}
+		for (Admin admin : list) {
+			if (user.equals(admin.getEmail())) {
+				return admin;
+			}
+
+		}
+
+		return null;
 
 	}
 

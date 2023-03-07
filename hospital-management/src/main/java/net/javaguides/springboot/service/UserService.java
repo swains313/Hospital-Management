@@ -18,7 +18,12 @@ public class UserService {
 	}
 	
 	public User findByEmail(String email) {
-		return userRepository.findByEmail(email);
+		List<User> list=userRepository.findAll();
+		for (User user : list) {
+			if(email.equals(user.getEmail()))
+				return user;
+		}
+		return null;
 	}
 	
 	public User findByConfirmationToken(String confirmationToken) {

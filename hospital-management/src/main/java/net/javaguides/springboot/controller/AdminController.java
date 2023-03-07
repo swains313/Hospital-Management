@@ -402,13 +402,10 @@ public class AdminController {
 	}
 	
 	
-	@GetMapping("/delete/{email}")
-	public String deleteById(@PathVariable String email)
-	{
-	adminServiceImplementation.deleteByEmail(email);
-	userService.deleteByEmail(email);
-	 //System.out.println(ad.getEmail());
-		return "redirect:/admin/user-details";
+	@GetMapping("/update/{email}")
+	public String updateByMail(@PathVariable String email,Model model) {
+		User exist=userService.findByEmail(email);
+		model.addAttribute("user", exist);
+		return "admin/update";
 	}
-
 }
