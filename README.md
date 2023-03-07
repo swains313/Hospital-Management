@@ -1,5 +1,14 @@
 # Hospital-Management
 HospitalManagementSystem
+
+SQL:
+NOTE:YOU HAVE TO INSERT THE ADMIN DATA EXPLICITLY (ACCORDING TO ABOVE INFORMATION password is = saumya ) PASSWORD IS PRESENT ENCODE FORMAT & USERID IS MAIL ID . 
+INSERT INTO `users` (`id`, `confirmation_token`, `username`, `enabled`, `first_name`, `gender`, `last_name`, `password`, `authority`, `lastseen`) VALUES
+(1, '36983cce-975b-4a92-bf73-a4f41978e01c', 'swain@gmail.com', b'1', 'Saumyaranjan', 'MALE', 'swain', '$2a$10$3LzhMz4ikJTnrmJUO7kPg.K0F1uAQuNVcaxwJ2Vbfwo3kX4Ccx.FK', 'ROLE_ADMIN', 'Tue Mar 07 18:54:28 IST 2023');
+
+INSERT INTO `authorities` (`id`, `confirmation_token`, `username`, `enabled`, `first_name`, `gender`, `last_name`, `password`, `authority`, `lastseen`) VALUES
+(1, '36983cce-975b-4a92-bf73-a4f41978e01c', 'swain@gmail.com', b'1', 'Saumyaranjan', 'MALE', 'swain', '$2a$10$3LzhMz4ikJTnrmJUO7kPg.K0F1uAQuNVcaxwJ2Vbfwo3kX4Ccx.FK', 'ROLE_ADMIN', 'Tue Mar 07 18:54:28 IST 2023');
+
 @saumya
 ![Screenshot 2023-03-07 at 6 52 49 PM](https://user-images.githubusercontent.com/68143654/223435289-3528cfb9-8f03-4103-aa06-982d95cd6a9a.png)
 
