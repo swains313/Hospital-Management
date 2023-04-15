@@ -287,15 +287,27 @@ public class AdminController {
 		// admin.setId(0);
 
 		admin.setRole("ROLE_ADMIN");
-		System.out.println(admin.getEmail() + " " + admin.getPassword());
+
 		admin.setPassword(passwordEncoder.encode(admin.getPassword()));
+
 		admin.setEnabled(true);
+
+		System.out.println(admin.getPassword() + " " + passwordEncoder.encode(admin.getPassword()));
+
 		admin.setConfirmationToken("ByAdmin-Panel");
-		admin.setPassword(passwordEncoder.encode(admin.getPassword()));
-		Date date=new Date();
-		admin.setLastseen(date.toString());
-		
-		User user=new User();
+
+		//SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		Date now = new Date();
+
+		String log = now.toString();
+
+		admin.setLastseen(log);
+
+		System.out.println(admin);
+
+		// admin.setPassword()
+
+		User user = new User();
 		user.setRole(admin.getRole());
 		user.setFirstName(admin.getFirstName());
 		user.setLastName(admin.getLastName());
@@ -306,14 +318,11 @@ public class AdminController {
 		user.setPassword(admin.getPassword());
 		user.setConfirmationToken("ByAdmin-Panel");
 		user.setEnabled(true);
-		
-		userService.saveUser(user);
 
-		
+		userService.saveUser(user);
 
 		adminServiceImplementation.save(admin);
 
-		System.out.println("SAVE-ADMIN");
 		// use a redirect to prevent duplicate submissions
 		return "redirect:/admin/admin-details";
 	}
